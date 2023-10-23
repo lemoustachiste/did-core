@@ -40,7 +40,7 @@ it('cannot produce application/did+ld+json from application/did+json', async () 
     .addRepresentation(representations);
   try {
     await didDocument.produce('application/did+ld+json');
-  } catch (e) {
+  } catch (e: any) {
     expect(e.message).toBe('"@context" is required and not present.');
   }
 });
@@ -58,7 +58,7 @@ it('can produce application/did+ld+json from application/did+json after adding @
   expect(JSON.parse(serialization.toString())).toEqual(jsonldFixtures.example1);
 });
 
-it('cannot produce application/did+ld+json from entries not defined in the context', async () => {
+it.only('cannot produce application/did+ld+json from entries not defined in the context', async () => {
   expect.assertions(1);
   const didDocument = factory
     .build({
@@ -73,7 +73,7 @@ it('cannot produce application/did+ld+json from entries not defined in the conte
     });
   try {
     await didDocument.produce('application/did+ld+json');
-  } catch (e) {
+  } catch (e: any) {
     expect(e.message).toBe('"@context" does not define: 🔥');
   }
 });

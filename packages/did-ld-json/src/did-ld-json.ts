@@ -1,4 +1,4 @@
-import {
+import type {
   AbstractDataModel,
   DidDocumentProducer,
   DidDocumentConsumer,
@@ -67,11 +67,10 @@ const assertValidRepresentation = async (
   if (asJson['id'] === undefined) {
     throw new Error('"id" is required and not present.');
   }
-  const { error } = await check(asJson, documentLoader);
-  let details = error?.details.replace('[null]', '').replace(',null', '');
-  if (details && details !== '') {
-    details = JSON.parse(details);
-    throw new Error('"@context" does not define: ' + details);
+  const { error } = await check(asJson, documentLoader, true);
+  let details = error?.event.details;
+  if (details && details.property !== '') {
+    throw new Error('"@context" does not define: ' + details.property);
   }
 };
 

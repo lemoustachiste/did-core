@@ -20,7 +20,7 @@ it('can consume application/did+ld+json', async () => {
             id: 'did:example:123',
             verificationMethod: [
               {
-                id: '#1',
+                id: 'did:example:123#1',
                 type: 'JsonWebKey2020',
                 controller: 'did:example:123',
                 publicKeyJwk: {
