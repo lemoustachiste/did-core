@@ -1,8 +1,8 @@
 {
-  "name": "@did-core/did-ld-json",
+  "name": "@blockcerts/did-ld-json",
   "author": "Orie Steele",
   "module": "dist/did-ld-json.esm.js",
-  "version": "0.1.1-unstable.15",
+  "version": "0.1.2",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
